@@ -5,7 +5,7 @@ Primeiro projeto meu que consiste na implementação do algoritmo sha3-256
 
 Estudar a construção sponge e a permutação Keccak-f[1600], implementando
 SHA3-256 sem utilizar bibliotecas criptográficas para o cálculo do hash.
-
+E conseguir criar uma aplicação com criptografia 
 ## Parâmetros do SHA3-256
 
 - Estado: 1600 bits
