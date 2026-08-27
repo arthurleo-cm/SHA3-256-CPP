@@ -4,6 +4,5 @@
 int main()
 {
   Sha3_256 hasher;
-
   return 0;
 }
