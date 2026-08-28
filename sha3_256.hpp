@@ -18,5 +18,29 @@ struct Sha3_256{
 return parte_esq | parte_dir;
 }
 
+//THETA θ (dificil)
+void theta() {
+    uint64_t C[5] = {0};
+    uint64_t D[5] = {0};
+    for (int x = 0; x < 5; ++x) {
+	for(int y = 0; y < 5; ++y)
+	{
+		C[x] ^= state[x][y];
+	}
+    }
+  for (int x = 0; x < 5; ++x) {
+        int esquerda =  (x - 4) % 5;
+        int direita  = (x + 1) % 5;
+	
+	D[x] = C[esquerda ^ rotl64(C[direita],1);
+    
+    }
+
+      for (int x = 0; x < 5; ++x) {
+        for (int y = 0; y < 5; ++y) {
+            state[x][y] ^= D[x];
+        }
+    }
+}
 };
 
