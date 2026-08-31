@@ -29,10 +29,10 @@ void theta() {
 	}
     }
   for (int x = 0; x < 5; ++x) {
-        int esquerda =  (x - 4) % 5;
+        int esquerda =  (x + 4) % 5;
         int direita  = (x + 1) % 5;
 	
-	D[x] = C[esquerda ^ rotl64(C[direita],1);
+	D[x] = C[esquerda] ^ rotl64(C[direita],1);
     
     }
 
