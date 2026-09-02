@@ -19,13 +19,19 @@ int main()
             v <<= 1;
         }
 
-    printf("Antes do theta:\n");
+     printf("Antes do theta:\n");
     print_state(hasher);
 
     hasher.theta();
 
     printf("\nDepois do theta:\n");
     print_state(hasher);
+    
+    printf("\nAdicionando o rho");
+    hasher.rho();
+    //theta + rho no codigo
+    print_state(hasher);
+    
 
     return 0;
 }
