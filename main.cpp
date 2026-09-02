@@ -20,18 +20,21 @@ int main()
         }
 
      printf("Antes do theta:\n");
-    print_state(hasher);
+   print_state(hasher);
 
     hasher.theta();
 
     printf("\nDepois do theta:\n");
     print_state(hasher);
     
-    printf("\nAdicionando o rho");
+    printf("\nAdicionando o rho\n");
     hasher.rho();
     //theta + rho no codigo
     print_state(hasher);
-    
+    //theta+ rho + pi no codigo
+    printf("\nAdicionando o pi\n");
+    hasher.pi();
+    print_state(hasher);
 
     return 0;
 }
