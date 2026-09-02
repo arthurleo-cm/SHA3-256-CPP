@@ -61,5 +61,26 @@ void rho()
         }
     
     }
+void pi()
+	{
+	  int novoX,novoY;
+    uint64_t temp[5][5] = {0};
+    for(int x = 0;x<5;x++)
+    {
+        for(int y = 0;y<5;y++)
+        {
+            novoX = y;
+            novoY = (2 * x + 3 * y) % 5;
+            temp[novoX][novoY] = state[x][y];
+        }
+    }
+    for(int x = 0;x<5;x++)
+    {
+        for(int y = 0;y < 5;y++)
+        {
+            state[x][y] = temp[x][y];
+        }
+    }
+}
 };
 
