@@ -41,6 +41,25 @@ void theta() {
             state[x][y] ^= D[x];
         }
     }
+	
 }
+void rho()
+    {
+        unsigned int desloca[5][5] = {
+        { 0, 36,  3, 41, 18},
+        { 1, 44, 10, 45,  2},
+        {62,  6, 43, 15, 61},
+        {28, 55, 25, 21, 56},
+        {27, 20, 39,  8, 14}
+    };
+        for(int x = 0; x < 5;x++)
+        {
+            for(int y = 0;y < 5;y++)
+            {
+                state[x][y] = rotl64(state[x][y],desloca[x][y]);
+            }
+        }
+    
+    }
 };
 
