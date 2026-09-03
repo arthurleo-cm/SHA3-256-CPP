@@ -35,6 +35,8 @@ int main()
     printf("\nAdicionando o pi\n");
     hasher.pi();
     print_state(hasher);
+    printf("\nAdicionando o chi\n");
+    hasher.chi()
 
     return 0;
 }
