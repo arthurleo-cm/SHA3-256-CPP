@@ -82,5 +82,15 @@ void pi()
         }
     }
 }
+void chi()
+{
+	
+}
+void iota()
+{
+	
+}
+
+
 };
 
