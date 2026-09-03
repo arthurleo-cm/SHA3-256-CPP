@@ -19,27 +19,32 @@ int main()
             v <<= 1;
         }
 
-    printf("Antes do theta:\n");
-   print_state(hasher);
-
-    hasher.theta();
-
-    printf("\nDepois do theta:\n");
-    print_state(hasher);
-    
-    printf("\nAdicionando o rho\n");
-    hasher.rho();
+    //printf("Antes do theta:\n");
+  // print_state(hasher);
+  //  hasher.theta();
+   // printf("\nDepois do theta:\n");
+  //  print_state(hasher);
+    //printf("\nAdicionando o rho\n");
+   //hasher.rho();
     //theta + rho no codigo
-    print_state(hasher);
+   // print_state(hasher);
     //theta+ rho + pi no codigo
-    printf("\nAdicionando o pi\n");
-    hasher.pi();
-    print_state(hasher);
+    //printf("\nAdicionando o pi\n");
+    //hasher.pi();
+    //print_state(hasher);
     //theta + rho + pi + chi no codigo
-    printf("\nAdicionando o chi\n");
-    hasher.chi();
-    print_state(hasher);
+   // printf("\nAdicionando o chi\n");
+    //hasher.chi();
+    //print_state(hasher);
     
-
+    for(int numeroRodadas = 0;numeroRodadas< 24;numeroRodadas++)
+    {
+        hasher.theta();
+        hasher.rho();
+        hasher.pi();
+        hasher.chi();
+        hasher.iota(numeroRodadas);
+    }
+    print_state(hasher);
     return 0;
 }
