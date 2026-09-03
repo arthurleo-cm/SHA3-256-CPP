@@ -92,7 +92,7 @@ void chi()
 			  int proximox1 = (x + 1) % 5;
 			  int proximox2 = (x +2) % 5;
 
-			  B[x][y] = state[x][y] xor((~ state[proximox1][y]) & state[proximox2][y]);
+			  B[x][y] = state[x][y] ^((~ state[proximox1][y]) & state[proximox2][y]);
 		  }
 	  }
 	for(int y = 0; y < 5;y++)
