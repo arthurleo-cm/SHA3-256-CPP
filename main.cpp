@@ -19,7 +19,7 @@ int main()
             v <<= 1;
         }
 
-     printf("Antes do theta:\n");
+    printf("Antes do theta:\n");
    print_state(hasher);
 
     hasher.theta();
@@ -36,7 +36,9 @@ int main()
     hasher.pi();
     print_state(hasher);
     printf("\nAdicionando o chi\n");
-    hasher.chi()
+    hasher.chi();
+    print_state(hasher);
+    
 
     return 0;
 }
