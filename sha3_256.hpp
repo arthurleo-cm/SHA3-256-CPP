@@ -92,21 +92,49 @@ void chi()
 			  int proximox1 = (x + 1) % 5;
 			  int proximox2 = (x +2) % 5;
 
-			  B[x][y] = state[x][y] xor((! state[proximox1][y]) & state[proximox2][y]);
+			  B[x][y] = state[x][y] xor((~ state[proximox1][y]) & state[proximox2][y]);
 		  }
 	  }
 	for(int y = 0; y < 5;y++)
 	  {
 		  for(int x = 0;x < 5;x++)
 		  {
-			  state[x][y] = B[5][5];
+			  state[x][y] = B[x][y];
 		  }
 	  }
 }
-void iota()
-{
+void iota(int numeroRodada)
+	{
+		const uint64_t RC[24] = {
+    0x0000000000000001ULL,
+    0x0000000000008082ULL,
+    0x800000000000808AULL,
+    0x8000000080008000ULL,
+    0x000000000000808BULL,
+    0x0000000080000001ULL,
+    0x8000000080008081ULL,
+    0x8000000000008009ULL,
+    0x000000000000008AULL,
+    0x0000000000000088ULL,
+    0x0000000080008009ULL,
+    0x000000008000000AULL,
+    0x000000008000808BULL,
+    0x800000000000008BULL,
+    0x8000000000008089ULL,
+    0x8000000000008003ULL,
+    0x8000000000008002ULL,
+    0x8000000000000080ULL,
+    0x000000000000800AULL,
+    0x800000008000000AULL,
+    0x8000000080008081ULL,
+    0x8000000000008080ULL,
+    0x0000000080000001ULL,
+    0x8000000080008008ULL
+};
+
+		state[0][0] = state[0][0] ^ RC[numeroRodada];
 	
-}
+	}
 
 
 };
