@@ -12,12 +12,12 @@ int main()
     Sha3_256 hasher;
 
     // valores conhecidos, só para poder ver o efeito de cada etapa
-    uint64_t v = 1;
-    for (int x = 0; x < 5; ++x)
-        for (int y = 0; y < 5; ++y) {
-            hasher.state[x][y] = v;
-            v <<= 1;
-        }
+  //  uint64_t v = 1;
+  //  for (int x = 0; x < 5; ++x)
+   //     for (int y = 0; y < 5; ++y) {
+      //      hasher.state[x][y] = v;
+       //     v <<= 1;
+    //    }
 
     //printf("Antes do theta:\n");
   // print_state(hasher);
