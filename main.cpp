@@ -35,6 +35,7 @@ int main()
     printf("\nAdicionando o pi\n");
     hasher.pi();
     print_state(hasher);
+    //theta + rho + pi + chi no codigo
     printf("\nAdicionando o chi\n");
     hasher.chi();
     print_state(hasher);
