@@ -84,7 +84,24 @@ void pi()
 }
 void chi()
 {
-	
+	uint64_t B[5][5];
+	for(int y = 0; y < 5;y++)
+	  {
+		  for(int x = 0;x < 5;x++
+		  {
+			  int proximox1 = (x + 1) % 5;
+			  int proximox2 = (x +2) % 5;
+
+			  B[x][y] = state[x][y] xor((! state[proximox1][y]) & state[proximox2][y])
+		  }
+	  }
+	for(int y = 0; y < 5;y++)
+	  {
+		  for(int x = 0;x < 5;x++)
+		  {
+			  state[x][y] = B[5][5];
+		  }
+	  }
 }
 void iota()
 {
