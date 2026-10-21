@@ -135,7 +135,71 @@ void iota(int numeroRodada)
 		state[0][0] = state[0][0] ^ RC[numeroRodada];
 	
 	}
+void kecca_f()
+{
+	for(int numeroRodadas = 0;numeroRodadas < 24;numeroRodadas++)
+	{
+		theta();
+		rho();
+		pi();
+		chi();
+		iota(numeroRodadas);
+	}
+}
+void absorverBloco(const uint8_t bloco[136]) {
+        for (int i = 0; i < 136; ++i) {
+            int faixa = i / 8;
+            int x = faixa % 5;
+            int y = faixa / 5;
+            int deslocamento = (i % 8) * 8;
 
+            state[x][y] ^= (uint64_t)bloco[i] << deslocamento;
+        }
+    }
+
+    // Calcula o SHA3-256
+    void hash(const uint8_t* mensagem, size_t tamanho, uint8_t saida[32]) {
+        const size_t RATE_BYTES = 136;
+
+        // Permite a reutilização 
+        for (int x = 0; x < 5; ++x) {
+            for (int y = 0; y < 5; ++y) {
+                state[x][y] = 0;
+            }
+        }
+
+        // Absorve todos os blocos
+        while (tamanho >= RATE_BYTES) {
+            absorverBloco(mensagem);
+            keccak_f();
+            mensagem += RATE_BYTES;
+            tamanho -= RATE_BYTES;
+        }
+
+        // SHA3 usa o sufixo 0x06 e 
+		//define o bit mais alto do último byte.
+        uint8_t bloco[136] = {0};
+
+        for (size_t i = 0; i < tamanho; ++i) {
+            bloco[i] = mensagem[i];
+        }
+
+        bloco[tamanho] ^= 0x06;
+        bloco[RATE_BYTES - 1] ^= 0x80;
+
+        absorverBloco(bloco);
+        keccak_f();
+
+
+        for (int i = 0; i < 32; ++i) {
+            int faixa = i / 8;
+            int x = faixa % 5;
+            int y = faixa / 5;
+            int deslocamento = (i % 8) * 8;
+
+            saida[i] = (uint8_t)((state[x][y] >> deslocamento) & 0xFF);
+        }
+    }
 
 };
 
