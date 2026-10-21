@@ -1,6 +1,7 @@
 #include "sha3_256.hpp"
 #include <cstdio>
-
+#include <iostream>
+#include <string>
 void print_state(const Sha3_256& h) {
     for (int x = 0; x < 5; ++x)
         for (int y = 0; y < 5; ++y)
@@ -9,7 +10,23 @@ void print_state(const Sha3_256& h) {
 
 int main()
 {
+    std::string mensagem;
+
+    printf("Digite a mensagem para calcular o SHA3-256: ");
+    if (!std::getline(std::cin, mensagem)) {
+        printf("Erro ao ler a mensagem.\n");
+        return 1;
+    }
     Sha3_256 hasher;
+     uint8_t saida[32];
+
+    hasher.hash(reinterpret_cast<const uint8_t*>(mensagem.data()), mensagem.size(), saida);
+
+    printf("SHA3-256: ");
+    for (int i = 0; i < 32; ++i) {
+        printf("%02x", (unsigned int)saida[i]);
+    }
+    printf("\n");
 
     // valores conhecidos, só para poder ver o efeito de cada etapa
   //  uint64_t v = 1;
@@ -37,14 +54,6 @@ int main()
     //hasher.chi();
     //print_state(hasher);
     
-    for(int numeroRodadas = 0;numeroRodadas< 24;numeroRodadas++)
-    {
-        hasher.theta();
-        hasher.rho();
-        hasher.pi();
-        hasher.chi();
-        hasher.iota(numeroRodadas);
-    }
-    print_state(hasher);
+   
     return 0;
 }
