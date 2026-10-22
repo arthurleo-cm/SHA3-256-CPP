@@ -3,7 +3,7 @@ Primeiro projeto meu que consiste na implementação do algoritmo sha3-256
 
 ## Objetivo
 
-Conseguir criar uma aplicação com criptografia
+Conseguir implementar o sha3-256
 
 ## Parâmetros do SHA3-256
 
