@@ -20,6 +20,12 @@ Conseguir implementar o sha3-256
 - Padding SHA3: usa o sufixo 0x06 e o bit final 0x80
 - Extração: produz os 32 bytes (256 bits) do hash
 - Testes: compara resultados com vetores conhecidos
+## Exemplo de validação
+
+Para a mensagem abc, o resultado esperado segundo o SHA3-256 é:
+
+3a985da74fe225b2045c172d6bd390bd
+855f086e3e9d525b46bfe24511431532
 ## Aviso
 
 Este é um projeto educacional e não foi auditado para uso em produção.
